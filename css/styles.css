@@ -1,0 +1,260 @@
+/*
+	Author: Stu Dent
+	Author Website: 
+	File Name: style.css
+	
+	NOTES: Basic Styles for the site
+	
+	Created: Feb 25, 2011
+	Last Updated:Feb 26, 2011
+*/
+
+/* ================== THE BASICS ================== */
+
+/* These apply to all elements */
+*{	margin:0;
+  	padding:0;
+  	
+  	/* border-box property measures from inside border */
+  	box-sizing: border-box;
+  	-moz-box-sizing:border-box;
+  	-webkit-box-sizing:border-box;
+  	-ms-box-sizing: border-box;
+}
+html, body {
+	width: 100%;
+	min-height: 100%; /* must be set so the gradient stretches the entire length of the page*/
+	height: auto; 
+}
+
+
+body{margin:0px auto;
+	 padding:0px auto;}
+	 
+img{border:none;}
+	
+ a img {border: none;}	
+ 
+ a{text-decoration:none;}
+ 
+ figure{display:block;
+ 		padding:0px;
+ 		margin:0px;}
+
+/* =================== GALLERY 1 =================== */	
+ 
+#Gallery-1 img{border:3px solid #000; 
+			   margin-bottom:18px;}
+
+/* =================== GALLERY 2 =================== */	
+ 
+#Gallery-2 img{border:3px solid #000; 
+			   margin-bottom:18px;
+			   opacity:.5;}
+			   
+			   
+#Gallery-2 figcaption{text-transform:uppercase;
+					   font-family:sans-serif;
+					   font-size:14px;
+					   font-weight:bold;
+					   text-align:center;}	
+					   
+#Gallery-2 a{color:#666;}		
+
+#Gallery-2 a:hover{color:#000;}
+
+#Gallery-2 a:hover img {opacity:1;}
+
+/* =================== GALLERY 3 =================== */	
+ 
+#Gallery-3 img{background: #fff;
+			   border-color: #aaa #ccc #ddd #bbb;
+			   border-style: solid;
+			   border-width: 1px;
+			   vertical-align: top;}
+			   
+#Gallery-3 figure{text-align:center;
+				  	background: #eee;
+					border-color: #ddd #bbb #aaa #ccc;
+					border-style: solid;
+					border-width: 1px;
+					display: inline;
+					float: left;
+					margin: 3px;
+					padding: 5px;
+					position: relative;}
+			   
+#Gallery-3 figcaption{text-transform:uppercase;
+					   font-family:sans-serif;
+					   font-size:14px;
+					   font-weight:bold;
+					   text-align:center;}	
+					   
+#Gallery-3 a{color:#000;}		
+
+#Gallery-3 a .preview{ display: none;}
+
+#Gallery-3 a:hover .preview { display: block; 
+							 position: absolute;
+							 top: -33px;
+							 left: -45px;
+							 z-index: 1;}
+
+
+
+/* =================== GALLERY 4 =================== */	
+
+/* Parent container of gallery, could be section, article or div */
+    #Gallery-4{ text-align:center;}
+
+/* Image container */
+#images {
+	width: 620px;
+	height: 350px;
+	overflow: hidden;
+	position: relative;
+	margin: 20px auto;
+	}
+
+/* Images inside the image container */
+#images img {
+	width: 620px;
+	height: 350px;
+	position: absolute;
+	top: 0;
+	left: -400px;
+	z-index: 1;
+	opacity: 0;
+	
+	/* Transition of images (fade) */
+	
+	transition: all linear 500ms;
+	-o-transition: all linear 500ms;
+	-moz-transition: all linear 500ms;
+	-webkit-transition: all linear 500ms;
+	}
+
+/* The target image inside the image container */
+#images img:target {
+	left: 0;
+	z-index: 9;
+	opacity: 1;
+	}
+
+/* The first instance of an image in the image container */
+#images img:first-child {
+	left: 0;
+	opacity: 1;
+	}
+
+/* The link inside the slider container */
+#Gallery-4 #slider a {
+	text-decoration: none;
+	background: #e4e0d6;
+	border: 1px solid #312518;
+	padding: 4px 6px;
+	color: #312518;
+	}
+
+/* The hover of the link in the slider container */
+#Gallery-4 #slider a:hover {
+	background: #917e65;
+	color:#e3dfd5;
+}
+
+
+/* =================== GALLERY 5 =================== */	
+
+/* Parent container of gallery, could be section, article or div */
+    #Gallery-5{ text-align:center;}
+
+
+/*all rules the same as gallery 4, except for the following */
+
+/* The link inside the slider container */
+#Gallery-5 #slider a {text-align:center;
+				  	background: #eee;
+					border-color: #ddd #bbb #aaa #ccc;
+					border-style: solid;
+					border-width: 1px;
+					display: inline;
+					float: left;
+					margin: 3px;
+					padding: 5px;}
+
+/* The hover of the link in the slider container */
+#Gallery-5 #slider a:hover {background: #333;}
+
+#Gallery-5 #slider img{width:100px;}
+
+
+
+/* =================== GALLERY 5 =================== */
+
+/***Now style the containing div that we gave the id 'polaroid'***/
+#Gallery-6{
+	width:95%; /*set a width so we can center the content*/
+	margin:0 auto; /*only after the width is set can we use margin auto, to center content*/
+	/*setting a width and adding overflow:hidden will clear the floats we're going to apply to figure*/
+	overflow:hidden;
+	font-family: sans-serif;
+}
+
+/***Position the figures containing the imgs and captions***/
+#Gallery-6 figure{
+	float:left; /*places the imgs in a horizontal line*/
+	position:relative; /*allows precise positioning of the tape in step 5- see support section below for more info*/
+	margin:10px 20px; /*space between the imgs*/
+	text-align: center;
+}
+
+#Gallery-6 figure{
+	padding: 6px 8px 10px 8px; /*size of the frame*/
+	
+	/*give the frame's background colour a gradient*/
+	background: #e8f0f6; /*fallback colour for browsers that don't support gradients*/
+	background: -webkit-linear-gradient(top, #e8f0f6 0%, #f3f7fa 24%, #f3f7fa 51%, #f3f7fa 75%, #e8f0f6 100%);
+	background: -o-linear-gradient(top, #e8f0f6 0%, #f3f7fa 24%, #f3f7fa 51%, #f3f7fa 75%, #e8f0f6 100%);
+	background: -ms-linear-gradient(top, #e8f0f6 0%, #f3f7fa 24%, #f3f7fa 51%, #f3f7fa 75%, #e8f0f6 100%);
+	background: linear-gradient(top, #e8f0f6 0%, #f3f7fa 24%, #f3f7fa 51%, #f3f7fa 75%, #e8f0f6 100%);
+	
+	/*give the Polaroids a small drop shadow*/
+	-webkit-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+	-moz-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+	box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+}
+
+/***Rotate the imgs 1 degrees anti-clockwise***/
+#Gallery-6 figure{
+	-webkit-transform:rotate(-1deg);
+	-moz-transform: rotate(-1deg);
+	-o-transform: rotate(-1deg);
+	-ms-transform: rotate(-1deg);
+	transform: rotate(-1deg);
+	-webkit-backface-visibility:hidden; /*prevent rotated text in the caption being jagged in Chrome and Safari*/
+}
+
+/***Rotate each even numbered image 2 degrees clockwise***/
+#Gallery-6 figure:nth-child(even) { /*see support section below for more info on nth-child*/
+	-webkit-transform:rotate(2deg);
+	-moz-transform: rotate(2deg);
+	-o-transform: rotate(2deg);
+	-ms-transform: rotate(2deg);
+	transform: rotate(2deg);
+	
+	/*because the image is rotated the opposite way, the drop-shadow needs moving to the other side of the image*/
+	-webkit-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+	-moz-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+	box-shadow: -4px 4px 8px -4px rgba(0, 0, 0, .75);
+}
+
+#Gallery-6 a ,  #Gallery-6 a img{
+	color:#333;
+	border:none;
+}
+
+#Gallery-6 a:hover{
+	color: #2185C5;
+	text-decoration:underline;
+}
+

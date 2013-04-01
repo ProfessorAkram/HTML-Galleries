@@ -1,0 +1,125 @@
+/*
+	Author: Akram Taghavi-Burris
+	Author Website: www.akramsideas.com
+	File Name: unsemantic.css
+	
+	BASED ON: Unsemantic GRID By Nathan Smith (http://unsemantic.com//)
+	
+	Created: Feb 20, 2011
+	Last Updated:Feb 26, 2011
+*/
+
+		
+/* =================== THE GRID =================== */
+.grid{
+	max-width: 960px; /*sets largest width size*/
+	min-width: 480px; /*sets the smallest screen size, before switching to mobile layout*/
+	width:100%; /*otherwise it is always 100% of the screen*/
+	margin:0 auto; /*centers the grid*/
+	padding:0; /*no padding */
+}
+
+.row {
+	min-height:40px; /* so we can see the row*/
+	width:100%;/*stretches the entire width of the grid*/
+	margin-bottom:24px;
+}
+
+.row:before, .row:after, .clear:before, .clear:after{
+	content:'';
+	display:table; /*The element is displayed as a table, makes for setting up grid easier */
+}
+
+/*forces the parent to clear it's children floats */
+.row:after, .clear:after {
+	clear:both;
+}
+
+.col{
+	padding: 0 10px; /*creates a gutter of 10px (left & right) around containers */
+
+}
+
+.col .col:first-of-type {
+	padding-left:0;
+}
+
+.col .col:last-of-type {
+	padding-right:0;
+}
+
+.end{
+	float:right;
+}
+
+
+/*All columns have these settings */
+.col-100, .col-95, .col-90, .col-85, .col-80, .col-75, .col-70, .col-66, .col-65, .col-60, .col-55, .col-50, .col-45, .col-40, .col-35, .col-33,.col-30, .col-25, .col-20, .col-15, .col-10, .col-5{ 
+	float:left;
+	margin:0;
+	}
+
+	
+/*Column Widths*/	
+.col-100 {width: 100%;}
+.col-95 {width: 95%;}
+.col-90 {width: 90%;}
+.col-85 {width: 85%;}
+.col-80 {width: 80%;}
+.col-75 {width: 75%;}
+.col-70 {width: 70%;}
+.col-66 {width: 66.666666666667%;}
+.col-65 {width: 65%;}
+.col-60 {width: 60%;}
+.col-55 {width: 55%;}
+.col-50 {width: 50%;}
+.col-45 {width: 45%;}
+.col-40 {width: 40%;}
+.col-35 {width: 35%;}
+.col-33 {width: 33.3333333333333%;}
+.col-30 {width: 30%;}
+.col-25 {width: 25%;}
+.col-20 {width: 20%;}
+.col-15 {width: 15%;}
+.col-10 {width: 10%;}
+.col-5 {width: 5%;}
+
+
+
+/*Hide on desktop view*/
+.d-hidden{
+	display:none;
+}
+
+
+
+/* =================== THE MOBILE GRID =================== */
+
+@media handheld, only screen and (max-width: 479px) {
+/* If smaller than 480px then apply these overrides*/
+
+	.grid {
+		width: 100%;
+		min-width: 0;
+	}
+
+	.col,.col-100, .col-95, .col-90, .col-85, .col-80, .col-75, .col-70, .col-66, .col-65, .col-60, .col-55, .col-50, .col-45, .col-40, .col-35, .col-33,.col-30, .col-25, .col-20, .col-15, .col-10, .col-5{ 
+		width: auto;
+		float: none;
+		margin-bottom:12px;
+	}
+
+	.col .col{
+		padding:0;
+	}
+
+	/*Show on mobile view*/
+	.d-hidden{
+		display:block;
+	}
+	/*Hide on mobile view*/
+	.m-hidden{
+		display:none;
+	}
+
+}/* end mobile */
